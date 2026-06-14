@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Anonymous Confession</title>
+</head>
+
+<body>
+
+<h1>Anonymous Confession</h1>
+
+<textarea id="message"
+placeholder="Tulis confession kamu..."
+rows="8"
+cols="40"></textarea>
+
+<br><br>
+
+<button onclick="sendConfession()">
+Kirim
+</button>
+
+<p id="status"></p>
+
+
+<script>
+
+const URL =
+"https://vrhqyymrzatfodtmmrnn.supabase.co";
+
+
+const KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ";
+
+
+function sendConfession(){
+
+
+let text =
+document.getElementById("message").value;
+
+
+fetch(URL + "/rest/v1/confessions",
+{
+
+method:"POST",
+
+headers:{
+"apikey":KEY,
+"Authorization":"Bearer "+KEY,
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+message:text
+})
+
+})
+
+.then(()=>{
+
+status.innerText =
+"Confession terkirim ✅";
+
+message.value="";
+
+})
+
+.catch(()=>{
+
+status.innerText =
+"Gagal mengirim";
+
+});
+
+
+}
+
+
+</script>
+
+
+</body>
+</html>
