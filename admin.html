@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+<h1>Admin Confession</h1>
+
+
+<input id="password"
+placeholder="Password">
+
+
+<button onclick="login()">
+Masuk
+</button>
+
+
+<div id="result"></div>
+
+
+<script>
+
+
+const ADMIN_PASSWORD="12345";
+
+
+const URL =
+"https://vrhqyymrzatfodtmmrnn.supabase.co";
+
+
+const KEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ";
+
+
+
+function login(){
+
+
+if(password.value !== ADMIN_PASSWORD){
+
+alert("Password salah");
+return;
+
+}
+
+
+
+fetch(
+URL+"/rest/v1/confessions?select=*",
+{
+
+headers:{
+
+"apikey":KEY,
+
+"Authorization":
+"Bearer "+KEY
+
+}
+
+}
+
+)
+
+.then(r=>r.json())
+
+.then(data=>{
+
+
+result.innerHTML="";
+
+
+data.reverse().forEach(x=>{
+
+
+result.innerHTML +=
+
+"<hr>"+
+x.created_at+
+"<br>"+
+x.message;
+
+
+});
+
+
+});
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
