@@ -30,9 +30,12 @@
       const message =
         document.getElementById("message").value;
 
+      // Cek jika kosong
       if (!message.trim()) {
+
         document.getElementById("status").innerText =
           "Tulis confession dulu";
+
         return;
       }
 
@@ -42,18 +45,21 @@
           "https://vrhqyymrzatfodtmmrnn.supabase.co/functions/v1/bright-function",
           {
             method: "POST",
+
             headers: {
-  "Content-Type": "application/json",
-  "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ",
-  "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ"
-}
+              "Content-Type": "application/json",
+              "apikey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ",
+              "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ"
+            },
+
             body: JSON.stringify({
               message: message
             })
           }
         );
 
-        const data = await response.json();
+        const data =
+          await response.json();
 
         if (data.success) {
 
