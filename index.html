@@ -2,14 +2,15 @@
 <html>
 
 <head>
-<title>Anonymous Confession</title>
+  <title>Anonymous Confession</title>
 </head>
 
 <body>
 
 <h1>Anonymous Confession</h1>
 
-<textarea id="message"
+<textarea
+id="message"
 placeholder="Tulis confession kamu..."
 rows="8"
 cols="40"></textarea>
@@ -24,21 +25,21 @@ Kirim
 
 <script>
 
-async function sendConfession(){
+async function sendConfession() {
 
 const message =
-document.getElementById("message").value
+document.getElementById("message").value;
 
-if(message.trim()==""){
+if (!message.trim()) {
 
 document.getElementById("status").innerText =
-"Tulis confession dulu"
+"Tulis confession dulu";
 
-return
+return;
 
 }
 
-try{
+try {
 
 const response = await fetch(
 
@@ -46,48 +47,53 @@ const response = await fetch(
 
 {
 
-method:"POST",
+method: "POST",
 
-headers:{
-"Content-Type":"application/json"
+headers: {
+
+"Content-Type": "application/json"
+
 },
 
-body:JSON.stringify({
+body: JSON.stringify({
 
-message:message
+message: message
 
 })
 
 }
 
-)
+);
 
-const data = await response.json()
+const data = await response.json();
 
-if(data.success){
-
-document.getElementById("status").innerText =
-"Confession terkirim ✅"
-
-document.getElementById("message").value = ""
-
-}else{
+if (data.success) {
 
 document.getElementById("status").innerText =
-"Gagal mengirim ❌"
+"Confession terkirim ✅";
 
-console.log(data)
+document.getElementById("message").value =
+"";
 
 }
 
-}catch(error){
-
-console.log(error)
+else {
 
 document.getElementById("status").innerText =
-"Terjadi error ❌"
+"Gagal mengirim ❌";
 
-alert(error)
+console.log(data);
+
+}
+
+}
+
+catch(error){
+
+console.log(error);
+
+document.getElementById("status").innerText =
+"Terjadi error ❌";
 
 }
 
