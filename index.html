@@ -4,86 +4,796 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
-<title>Anonymous Confession</title>
+<title>Our Little Universe</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
 
 <style>
 
-body{
-
+*{
 margin:0;
 padding:0;
+box-sizing:border-box;
+}
 
-font-family:Arial,Helvetica,sans-serif;
+body{
 
-background:linear-gradient(180deg,#0f0f0f,#171717,#101010);
+font-family:'Poppins',sans-serif;
 
-display:flex;
-justify-content:center;
-align-items:center;
+background:#0d0d0d;
 
-min-height:100vh;
+overflow:hidden;
 
 color:white;
 
 }
 
 
-.card{
 
-width:90%;
-max-width:420px;
 
-padding:25px;
+#intro{
 
-border-radius:25px;
+position:fixed;
 
-background:rgba(255,255,255,.05);
+top:0;
+left:0;
 
-backdrop-filter:blur(15px);
+width:100%;
+height:100%;
 
-box-shadow:
-0 0 30px rgba(255,255,255,.05);
+background:#0d0d0d;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+z-index:9999;
+
+animation:
+
+fadeOut 5s forwards;
+
+animation-delay:3s;
+
+}
+
+
+
+
+.introText{
 
 text-align:center;
 
 }
 
 
-.profile{
 
-width:220px;
-height:300px;
+.introText p{
 
-object-fit:cover;
+font-size:25px;
 
-border-radius:20px;
+opacity:0;
 
-box-shadow:
-0 0 25px rgba(255,255,255,.12);
+animation:
+
+appear 2s forwards;
 
 }
+
+
+
+.introText h1{
+
+margin-top:20px;
+
+font-size:40px;
+
+opacity:0;
+
+animation:
+
+appear 2s forwards;
+
+animation-delay:1s;
+
+}
+
+
+
+
+
+@keyframes appear{
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+
+
+@keyframes fadeOut{
+
+to{
+
+opacity:0;
+
+visibility:hidden;
+
+}
+
+}
+
+
+
+
+
+#stars{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+z-index:-1;
+
+}
+
+
+
+
+.star{
+
+position:absolute;
+
+background:white;
+
+border-radius:50%;
+
+opacity:.8;
+
+animation:
+
+twinkle 3s infinite;
+
+}
+
+
+
+@keyframes twinkle{
+
+
+50%{
+
+opacity:.2;
+
+}
+
+
+
+100%{
+
+opacity:1;
+
+}
+
+
+}
+
+
+
+
+
+
+.shooting{
+
+position:fixed;
+
+top:-100px;
+
+left:-100px;
+
+width:3px;
+
+height:3px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 20px white;
+
+animation:
+
+shoot 8s linear infinite;
+
+}
+
+
+
+@keyframes shoot{
+
+
+0%{
+
+transform:
+
+translate(0,0);
+
+opacity:1;
+
+}
+
+
+
+100%{
+
+
+transform:
+
+translate(1200px,700px);
+
+
+opacity:0;
+
+
+}
+
+
+
+}
+
+
+
+
+
+#main{
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+height:100vh;
+
+
+}
+
+
+
+
+.card{
+
+
+width:90%;
+
+max-width:420px;
+
+
+padding:25px;
+
+
+border-radius:30px;
+
+
+background:
+
+
+rgba(255,255,255,.04);
+
+
+
+backdrop-filter:
+
+blur(15px);
+
+
+
+text-align:center;
+
+
+
+box-shadow:
+
+
+0 0 30px
+
+
+rgba(255,255,255,.05);
+
+
+
+}
+
+
+
+
+
+.profile{
+
+
+width:220px;
+
+
+height:300px;
+
+
+object-fit:contain;
+
+
+border-radius:25px;
+
+
+
+box-shadow:
+
+
+0 0 35px
+
+
+rgba(255,255,255,.10);
+
+
+
+cursor:pointer;
+
+
+
+}
+
+
 
 
 .small{
 
+
 margin-top:15px;
 
-font-size:14px;
 
 opacity:.8;
+
+
 
 }
 
 
+
+
 .archive{
 
-font-size:13px;
 
 opacity:.6;
 
-margin-top:4px;
+
+margin-top:5px;
+
+
+font-size:13px;
+
+
+
+}
+
+
+
+
+
+#greeting{
+
+
+margin-top:15px;
+
+
+font-size:13px;
+
+
+opacity:.7;
+
+
+
+}
+
+
+
+
+
+.musicCard{
+
+
+margin-top:20px;
+
+
+padding:15px;
+
+
+border-radius:20px;
+
+
+
+background:
+
+
+rgba(255,255,255,.03);
+
+
+
+}
+
+
+
+
+.musicCard small{
+
+
+opacity:.6;
+
+
+
+}
+
+
+
+
+.musicCard button{
+
+
+margin-top:15px;
+
+
+
+width:100%;
+
+
+
+padding:12px;
+
+
+
+border:none;
+
+
+
+border-radius:15px;
+
+
+
+background:
+
+
+linear-gradient(90deg,#3b3b3b,#595959);
+
+
+
+color:white;
+
+
+
+cursor:pointer;
+
+
+
+}
+
+
+
+
+
+h1{
+
+
+margin-top:30px;
+
+
+
+font-size:28px;
+
+
+
+}
+
+
+
+
+textarea{
+
+
+margin-top:20px;
+
+
+
+width:100%;
+
+
+
+height:170px;
+
+
+
+padding:15px;
+
+
+
+border:none;
+
+
+
+outline:none;
+
+
+
+resize:none;
+
+
+
+border-radius:18px;
+
+
+
+background:#1c1c1c;
+
+
+
+color:white;
+
+
+
+font-size:15px;
+
+
+
+}
+
+
+
+
+.info{
+
+
+margin-top:20px;
+
+
+
+padding:15px;
+
+
+
+border-radius:18px;
+
+
+
+background:
+
+
+rgba(255,255,255,.03);
+
+
+
+text-align:left;
+
+
+
+line-height:1.6;
+
+
+
+font-size:14px;
+
+
+
+}
+
+
+
+
+
+#btn{
+
+
+margin-top:20px;
+
+
+
+width:100%;
+
+
+
+padding:15px;
+
+
+
+border:none;
+
+
+
+border-radius:18px;
+
+
+
+font-size:16px;
+
+
+
+cursor:pointer;
+
+
+
+background:
+
+
+linear-gradient(90deg,#444,#666);
+
+
+
+color:white;
+
+
+
+}
+
+
+
+
+
+#status{
+
+
+margin-top:20px;
+
+
+
+font-size:14px;
+
+
+
+}
+
+
+
+
+
+#popup{
+
+
+position:fixed;
+
+
+top:0;
+
+
+left:0;
+
+
+
+width:100%;
+
+
+height:100%;
+
+
+
+display:none;
+
+
+
+justify-content:center;
+
+
+
+align-items:center;
+
+
+
+background:
+
+
+rgba(0,0,0,.7);
+
+
+
+}
+
+
+
+
+
+.popupBox{
+
+
+padding:30px;
+
+
+
+border-radius:20px;
+
+
+
+background:
+
+
+#202020;
+
+
+
+text-align:center;
+
+
+
+}
+
+
+
+
+#hearts{
+
+
+position:fixed;
+
+
+
+top:0;
+
+
+
+left:0;
+
+
+
+width:100%;
+
+
+
+height:100%;
+
+
+
+pointer-events:none;
+
+
+
+}
+
+
+
+
+@media(max-width:500px){
+
+
+.profile{
+
+
+width:180px;
+
+
+height:260px;
+
 
 }
 
@@ -91,177 +801,159 @@ margin-top:4px;
 
 h1{
 
-margin-top:30px;
 
-font-size:28px;
+font-size:24px;
+
 
 }
 
 
 
-textarea{
-
-width:100%;
-
-height:160px;
-
-padding:15px;
-
-margin-top:15px;
-
-border:none;
-
-outline:none;
-
-resize:none;
-
-border-radius:18px;
-
-background:#1e1e1e;
-
-color:white;
-
-font-size:15px;
-
-box-sizing:border-box;
-
 }
-
-
-
-.info{
-
-margin-top:18px;
-
-padding:15px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.04);
-
-text-align:left;
-
-font-size:14px;
-
-line-height:1.6;
-
-}
-
-
-
-button{
-
-margin-top:20px;
-
-width:100%;
-
-padding:16px;
-
-border:none;
-
-border-radius:18px;
-
-cursor:pointer;
-
-font-size:16px;
-
-font-weight:bold;
-
-color:white;
-
-background:
-linear-gradient(90deg,#6a11cb,#8e44ff);
-
-}
-
-
-
-button:disabled{
-
-opacity:.6;
-
-cursor:not-allowed;
-
-}
-
-
-
-#status{
-
-margin-top:20px;
-
-font-size:15px;
-
-}
-
-
-
-.spinner{
-
-width:18px;
-
-height:18px;
-
-border:3px solid rgba(255,255,255,.3);
-
-border-top:3px solid white;
-
-border-radius:50%;
-
-display:inline-block;
-
-animation:spin .8s linear infinite;
-
-vertical-align:middle;
-
-margin-right:8px;
-
-}
-
-
-@keyframes spin{
-
-100%{
-
-transform:rotate(360deg);
-
-}
-
-}
-
 
 </style>
 
 </head>
 
+
 <body>
+
+
+<!-- OPENING -->
+
+<div id="intro">
+
+<div class="introText">
+
+<p>everything</p>
+
+<p>made by</p>
+
+<h1>100% love😉🫶</h1>
+
+</div>
+
+</div>
+
+
+
+
+<!-- STARS -->
+
+<div id="stars"></div>
+
+
+
+
+<!-- SHOOTING STAR -->
+
+<div class="shooting"></div>
+
+
+
+
+
+<!-- MAIN -->
+
+<div id="main">
+
 
 
 <div class="card">
 
 
+
 <img
+
+id="profile"
 
 src="IMG_20230521_193718_408.webp"
 
 class="profile"
 
-
 >
 
 
-<div class="small">
+
+
+
+<p class="small">
 
 made with 100% love🫶
 
-</div>
+</p>
 
 
-<div class="archive">
+
+<p class="archive">
 
 forever archived ✨
 
+</p>
+
+
+
+<p id="greeting">
+
+</p>
+
+
+
+
+
+<div class="musicCard">
+
+
+<p>
+
+🎵 Our Little Universe
+
+</p>
+
+
+
+<small>
+
+Stuck With U
+
+Acoustic Violin Cover
+
+</small>
+
+
+
+<button
+
+id="musicBtn"
+
+onclick="toggleMusic()"
+
+>
+
+▶ Play Music
+
+</button>
+
+
+
 </div>
+
+
+
+
+
+<audio
+
+id="audio"
+
+src="Ariana Grande Justin Bieber - Stuck With U - Acoustic Cover (Violin).mp3"
+
+>
+
+</audio>
+
+
+
 
 
 
@@ -273,34 +965,69 @@ forever archived ✨
 
 
 
+
+
+
 <textarea
 
 id="message"
 
 placeholder="Tulis sesuatu yang ingin kamu sampaikan..."
 
-></textarea>
+>
+
+</textarea>
+
+
+
+
 
 
 
 <div class="info">
 
-🛡️ <b>Pesanmu aman</b>
 
-<br><br>
 
-pesanmu akan tersampaikan 100%
+🛡️
+
+<b>
+
+Pesanmu aman
+
+</b>
+
+
+
+<br>
+
+<br>
+
+
+
+pesanmu akan tersampaikan
+
+100%
+
 kepada yang membuat ini,
+
 pasti aman aja😉🫶
+
 
 
 </div>
 
 
 
-<button id="btn"
 
-onclick="sendConfession()">
+
+
+<button
+
+id="btn"
+
+onclick="sendConfession()"
+
+>
 
 ✈️ Kirim Confession
 
@@ -308,7 +1035,24 @@ onclick="sendConfession()">
 
 
 
-<p id="status"></p>
+
+
+
+<p id="status">
+
+</p>
+
+
+
+
+
+
+<div id="hearts">
+
+</div>
+
+
+
 
 
 
@@ -316,99 +1060,158 @@ onclick="sendConfession()">
 
 
 
+
+
+</div>
+
+
+
+
+
+<div id="popup">
+
+
+<div class="popupBox">
+
+
+Some memories deserve
+
+to stay forever.
+
+
+<br>
+
+<br>
+
+
+🫶✨
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
 <script>
 
 
-async function sendConfession(){
+const SUPABASE_URL =
+"https://vrhqyymrzatfodtmmrnn.supabase.co/functions/v1/bright-function";
+
+const APIKEY =
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ";
 
 
-const message=
 
-document.getElementById("message").value;
+// ===== GREETING =====
+
+const hour = new Date().getHours();
+
+const greet =
+document.getElementById("greeting");
 
 
-if(!message.trim()){
+if(hour>=0 && hour<6){
 
+greet.innerHTML=
+"good night,<br>thanks for visiting our little universe 🌌";
 
-document.getElementById("status").innerHTML=
+}
 
-"Isi confession terlebih dahulu";
+else if(hour<18){
 
-return;
+greet.innerHTML=
+"have a wonderful day ✨";
+
+}
+
+else{
+
+greet.innerHTML=
+"good evening,<br>stay safe and smile😉🫶";
 
 }
 
 
 
-const btn=
 
-document.getElementById("btn");
+// ===== STARS =====
 
-
-btn.disabled=true;
-
-
-btn.innerHTML=
-
-'<span class="spinner"></span> Mengirim...';
+const stars =
+document.getElementById("stars");
 
 
-
-try{
-
-
-const response=await fetch(
-
-"https://vrhqyymrzatfodtmmrnn.supabase.co/functions/v1/bright-function",
-
-{
-
-method:"POST",
-
-headers:{
+for(let i=0;i<90;i++){
 
 
-"Content-Type":"application/json",
-
-"apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ",
-
-"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ"
+let s=
+document.createElement("div");
 
 
-},
+s.className=
+"star";
 
 
-body:JSON.stringify({
+s.style.left=
+Math.random()*100+"%";
 
 
-message:message
+s.style.top=
+Math.random()*100+"%";
 
 
-})
+let size=
+Math.random()*3+1;
+
+
+s.style.width=
+size+"px";
+
+
+s.style.height=
+size+"px";
+
+
+s.style.animationDelay=
+Math.random()*5+"s";
+
+
+stars.appendChild(s);
 
 
 }
 
 
-);
 
 
 
-const data=
+// ===== MUSIC =====
 
-await response.json();
-
-
-
-if(data.success){
+const audio=
+document.getElementById("audio");
 
 
-document.getElementById("status").innerHTML=
+const musicBtn=
+document.getElementById("musicBtn");
 
-"✅ Confession berhasil terkirim";
+
+function toggleMusic(){
 
 
-document.getElementById("message").value="";
+if(audio.paused){
+
+
+audio.play();
+
+
+musicBtn.innerHTML=
+"⏸ Pause Music";
 
 
 }
@@ -417,7 +1220,305 @@ document.getElementById("message").value="";
 else{
 
 
-document.getElementById("status").innerHTML=
+audio.pause();
+
+
+musicBtn.innerHTML=
+"▶ Play Music";
+
+
+}
+
+
+
+}
+
+
+
+
+
+// ===== EASTER EGG =====
+
+
+let tap=0;
+
+
+const profile=
+document.getElementById("profile");
+
+
+profile.addEventListener("click",()=>{
+
+
+tap++;
+
+
+
+if(tap==2){
+
+
+document.getElementById("popup")
+.style.display="flex";
+
+
+setTimeout(()=>{
+
+
+document.getElementById("popup")
+.style.display="none";
+
+
+},2000);
+
+
+
+tap=0;
+
+
+
+}
+
+
+});
+
+
+
+
+
+
+// ===== HEARTS =====
+
+function createHeart(){
+
+
+let heart=
+document.createElement("div");
+
+
+heart.innerHTML=
+"❤️";
+
+
+heart.style.position=
+"fixed";
+
+
+heart.style.left=
+Math.random()*100+"%";
+
+
+heart.style.bottom=
+"0";
+
+
+heart.style.fontSize=
+"20px";
+
+
+heart.style.transition=
+"4s";
+
+
+document.body.appendChild(heart);
+
+
+
+setTimeout(()=>{
+
+
+heart.style.bottom=
+"100%";
+
+
+heart.style.opacity=
+"0";
+
+
+},50);
+
+
+
+setTimeout(()=>{
+
+
+heart.remove();
+
+
+},4000);
+
+
+
+}
+
+
+
+
+
+
+
+// ===== CONFESSION =====
+
+
+async function sendConfession(){
+
+
+
+const msg=
+
+
+document.getElementById("message").value;
+
+
+
+if(!msg.trim()){
+
+
+status.innerHTML=
+
+
+"Isi confession terlebih dahulu";
+
+
+return;
+
+
+}
+
+
+
+
+const btn=
+
+
+document.getElementById("btn");
+
+
+
+btn.disabled=true;
+
+
+
+btn.innerHTML=
+
+
+"⏳ Mengirim...";
+
+
+
+
+
+try{
+
+
+const response=
+
+
+await fetch(
+
+
+SUPABASE_URL,
+
+
+{
+
+
+method:"POST",
+
+
+
+headers:{
+
+
+
+"Content-Type":"application/json",
+
+
+
+"apikey":APIKEY,
+
+
+
+"Authorization":"Bearer "+APIKEY
+
+
+
+},
+
+
+
+body:JSON.stringify({
+
+
+
+message:msg
+
+
+
+})
+
+
+
+}
+
+
+
+);
+
+
+
+
+const data=
+
+
+await response.json();
+
+
+
+
+
+if(data.success){
+
+
+
+status.innerHTML=
+
+
+"💌 Confession berhasil terkirim";
+
+
+
+document.getElementById("message")
+.value="";
+
+
+
+for(let i=0;i<15;i++){
+
+
+
+setTimeout(()=>{
+
+
+createHeart();
+
+
+},i*150);
+
+
+
+}
+
+
+
+}
+
+
+
+else{
+
+
+status.innerHTML=
+
 
 "❌ Gagal mengirim";
 
@@ -426,19 +1527,27 @@ document.getElementById("status").innerHTML=
 
 
 
+
+
 }
+
 
 
 
 catch(err){
 
 
-document.getElementById("status").innerHTML=
+status.innerHTML=
+
 
 "❌ Terjadi error";
 
 
+console.log(err);
+
+
 }
+
 
 
 
@@ -447,14 +1556,16 @@ btn.disabled=false;
 
 btn.innerHTML=
 
+
 "✈️ Kirim Confession";
 
 
 }
 
 
-
 </script>
+
+
 
 </body>
 
