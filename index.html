@@ -4,10 +4,12 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport"
 content="width=device-width,initial-scale=1.0">
 
 <title>Our Little Universe</title>
+
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -16,58 +18,87 @@ href="https://fonts.googleapis.com">
 href="https://fonts.gstatic.com"
 crossorigin>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
 rel="stylesheet">
 
 
 <style>
 
+
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 }
+
+
 
 body{
 
+
 font-family:'Poppins',sans-serif;
 
-background:#0d0d0d;
+
+background:#0b0b0b;
+
 
 overflow:hidden;
 
+
 color:white;
 
+
 }
+
 
 
 
 
 #intro{
 
+
 position:fixed;
 
+
 top:0;
+
+
 left:0;
 
+
 width:100%;
+
+
 height:100%;
 
-background:#0d0d0d;
+
+background:#0b0b0b;
+
 
 display:flex;
 
+
 justify-content:center;
+
 
 align-items:center;
 
+
 z-index:9999;
+
 
 animation:
 
-fadeOut 5s forwards;
+introFade 5s forwards;
+
 
 animation-delay:3s;
+
 
 }
 
@@ -76,67 +107,90 @@ animation-delay:3s;
 
 .introText{
 
+
 text-align:center;
 
+
 }
+
 
 
 
 .introText p{
 
-font-size:25px;
+
+font-size:30px;
+
 
 opacity:0;
+
 
 animation:
 
 appear 2s forwards;
 
+
 }
+
 
 
 
 .introText h1{
 
-margin-top:20px;
 
-font-size:40px;
+font-size:42px;
+
+
+margin-top:15px;
+
 
 opacity:0;
+
 
 animation:
 
 appear 2s forwards;
 
+
 animation-delay:1s;
 
-}
 
+}
 
 
 
 
 @keyframes appear{
 
+
 to{
+
 
 opacity:1;
 
-}
 
 }
 
 
+}
 
-@keyframes fadeOut{
+
+
+
+@keyframes introFade{
+
 
 to{
 
+
 opacity:0;
+
 
 visibility:hidden;
 
+
 }
+
 
 }
 
@@ -146,19 +200,26 @@ visibility:hidden;
 
 #stars{
 
+
 position:fixed;
+
 
 top:-50vh;
 
+
 left:-50vw;
+
 
 width:200vw;
 
+
 height:200vh;
 
-overflow:hidden;
 
 z-index:-1;
+
+
+overflow:hidden;
 
 
 animation:
@@ -168,7 +229,9 @@ rotateSky 260s linear infinite;
 
 transform-origin:center center;
 
+
 }
+
 
 
 
@@ -193,10 +256,10 @@ animation:
 twinkle 3s infinite;
 
 
-will-change:transform;
-
-
 }
+
+
+
 
 
 @keyframes twinkle{
@@ -204,103 +267,103 @@ will-change:transform;
 
 50%{
 
+
 opacity:.2;
+
 
 }
 
 
 
 100%{
+
 
 opacity:1;
 
+
 }
 
 
 }
+
+
+
 
 @keyframes rotateSky{
 
+
 from{
 
-transform:rotate(0deg);
+
+transform:
+
+rotate(0deg);
+
 
 }
+
+
 
 to{
 
-transform:rotate(360deg);
 
-}
+transform:
 
-}
+rotate(360deg);
 
-@keyframes profileGlow{
-
-0%{
-
-box-shadow:
-
-0 0 15px rgba(255,255,255,.12),
-
-0 0 35px rgba(255,255,255,.08);
 
 }
 
 
-50%{
-
-box-shadow:
-
-0 0 25px rgba(255,255,255,.22),
-
-0 0 60px rgba(255,255,255,.16),
-
-0 0 90px rgba(255,255,255,.10);
-
 }
 
-
-100%{
-
-box-shadow:
-
-0 0 15px rgba(255,255,255,.12),
-
-0 0 35px rgba(255,255,255,.08);
-
-}
-
-}
 
 
 
 .shooting{
 
+
 position:fixed;
 
+
 top:-100px;
+
+
 left:-100px;
 
+
 width:5px;
+
+
 height:5px;
+
 
 background:white;
 
+
 border-radius:50%;
+
 
 box-shadow:
 
-0 0 10px white,
 
-0 0 25px white,
+0 0 15px white,
 
-0 0 50px rgba(255,255,255,.8);
+
+0 0 35px white,
+
+
+0 0 60px rgba(255,255,255,.7);
+
 
 animation:
+
+
 shoot 7s linear infinite;
 
+
 }
+
 
 
 
@@ -309,11 +372,14 @@ shoot 7s linear infinite;
 
 0%{
 
+
 transform:
 
 translate(0,0);
 
+
 opacity:1;
+
 
 }
 
@@ -324,7 +390,8 @@ opacity:1;
 
 transform:
 
-translate(1200px,700px);
+
+translate(1400px,900px);
 
 
 opacity:0;
@@ -333,9 +400,7 @@ opacity:0;
 }
 
 
-
 }
-
 
 
 
@@ -355,7 +420,11 @@ align-items:center;
 height:100vh;
 
 
+padding:20px;
+
+
 }
+
 
 
 
@@ -363,15 +432,16 @@ height:100vh;
 .card{
 
 
-width:90%;
-
-max-width:420px;
+width:100%;
 
 
-padding:25px;
+max-width:470px;
 
 
-border-radius:30px;
+padding:35px;
+
+
+border-radius:35px;
 
 
 background:
@@ -380,128 +450,51 @@ background:
 rgba(255,255,255,.04);
 
 
-
 backdrop-filter:
 
-blur(15px);
 
+blur(18px);
+
+
+border:
+
+
+1px solid rgba(255,255,255,.04);
+
+
+box-shadow:
+
+
+0 0 40px rgba(255,255,255,.05),
+
+
+0 0 80px rgba(255,255,255,.03);
+
+
+overflow:hidden;
 
 
 text-align:center;
 
 
-
-box-shadow:
-
-
-0 0 30px
-
-
-rgba(255,255,255,.05);
-
-
-
 }
 
 
 
 
+.photo-wrap{
 
-.profile{
 
-width:220px;
-height:300px;
+width:250px;
 
-object-fit:contain;
 
-border-radius:25px;
+padding:10px;
 
-cursor:pointer;
 
-box-shadow:
+margin:auto;
 
 
-0 0 15px rgba(255,255,255,.15),
-
-0 0 35px rgba(255,255,255,.12),
-
-0 0 60px rgba(255,255,255,.10),
-
-0 0 90px rgba(255,255,255,.07);
-
-
-animation:
-
-profileGlow 6s ease-in-out infinite;
-}
-
-
-
-
-.small{
-
-
-margin-top:15px;
-
-
-opacity:.8;
-
-
-
-}
-
-
-
-
-.archive{
-
-
-opacity:.6;
-
-
-margin-top:5px;
-
-
-font-size:13px;
-
-
-
-}
-
-
-
-
-
-#greeting{
-
-
-margin-top:15px;
-
-
-font-size:13px;
-
-
-opacity:.7;
-
-
-
-}
-
-
-
-
-
-.musicCard{
-
-
-margin-top:20px;
-
-
-padding:15px;
-
-
-border-radius:20px;
-
+border-radius:30px;
 
 
 background:
@@ -510,9 +503,183 @@ background:
 rgba(255,255,255,.03);
 
 
+animation:
+
+
+profileGlow 6s ease-in-out infinite;
+
 
 }
 
+
+
+
+.profile{
+
+
+width:100%;
+
+
+height:330px;
+
+
+object-fit:cover;
+
+
+border-radius:22px;
+
+
+display:block;
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,255,255,.45),
+
+
+0 0 50px rgba(255,255,255,.25),
+
+
+0 0 90px rgba(255,255,255,.15);
+
+
+cursor:pointer;
+
+
+}
+
+
+
+
+@keyframes profileGlow{
+
+
+0%{
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,255,255,.08),
+
+
+0 0 60px rgba(255,255,255,.05);
+
+
+}
+
+
+
+50%{
+
+
+box-shadow:
+
+
+0 0 40px rgba(255,255,255,.15),
+
+
+0 0 90px rgba(255,255,255,.10);
+
+
+}
+
+
+
+100%{
+
+
+box-shadow:
+
+
+0 0 25px rgba(255,255,255,.08),
+
+
+0 0 60px rgba(255,255,255,.05);
+
+
+}
+
+
+}
+.small{
+
+margin-top:15px;
+
+font-size:14px;
+
+opacity:.8;
+
+}
+
+
+.archive{
+
+font-size:13px;
+
+opacity:.55;
+
+margin-top:5px;
+
+}
+
+
+
+#greeting{
+
+margin-top:18px;
+
+font-size:13px;
+
+opacity:.75;
+
+line-height:1.6;
+
+}
+
+
+
+
+.musicCard{
+
+
+margin-top:25px;
+
+
+padding:18px;
+
+
+border-radius:20px;
+
+
+background:
+
+
+rgba(255,255,255,.03);
+
+
+backdrop-filter:
+
+
+blur(10px);
+
+
+}
+
+
+
+
+.musicCard p{
+
+
+font-size:15px;
+
+
+font-weight:600;
+
+
+}
 
 
 
@@ -522,52 +689,124 @@ rgba(255,255,255,.03);
 opacity:.6;
 
 
+display:block;
+
+
+margin-top:5px;
+
 
 }
 
 
 
-
-.musicCard button{
+#musicBtn{
 
 
 margin-top:15px;
 
 
-
 width:100%;
 
 
-
-padding:12px;
-
+padding:14px;
 
 
 border:none;
 
 
-
-border-radius:15px;
-
+border-radius:16px;
 
 
 background:
 
 
-linear-gradient(90deg,#3b3b3b,#595959);
-
+linear-gradient(90deg,#444,#666);
 
 
 color:white;
 
 
-
 cursor:pointer;
 
+
+font-size:14px;
 
 
 }
 
+
+
+
+.note{
+
+
+position:absolute;
+
+
+right:20px;
+
+
+font-size:18px;
+
+
+opacity:0;
+
+
+animation:
+
+
+floatNote 4s infinite;
+
+
+}
+
+
+
+@keyframes floatNote{
+
+
+0%{
+
+
+transform:
+
+
+translateY(0);
+
+
+opacity:0;
+
+
+}
+
+
+
+50%{
+
+
+opacity:1;
+
+
+}
+
+
+
+100%{
+
+
+transform:
+
+
+translateY(-60px);
+
+
+opacity:0;
+
+
+}
+
+
+}
 
 
 
@@ -578,9 +817,7 @@ h1{
 margin-top:30px;
 
 
-
 font-size:28px;
-
 
 
 }
@@ -591,48 +828,43 @@ font-size:28px;
 textarea{
 
 
-margin-top:20px;
-
-
-
 width:100%;
-
 
 
 height:170px;
 
 
+margin-top:20px;
 
-padding:15px;
 
+padding:18px;
 
 
 border:none;
 
 
-
 outline:none;
-
 
 
 resize:none;
 
 
-
 border-radius:18px;
 
 
+background:
 
-background:#1c1c1c;
 
+#181818;
 
 
 color:white;
 
 
-
 font-size:15px;
 
+
+font-family:'Poppins',sans-serif;
 
 
 }
@@ -646,13 +878,10 @@ font-size:15px;
 margin-top:20px;
 
 
-
-padding:15px;
-
+padding:18px;
 
 
 border-radius:18px;
-
 
 
 background:
@@ -661,21 +890,16 @@ background:
 rgba(255,255,255,.03);
 
 
-
 text-align:left;
-
-
-
-line-height:1.6;
-
 
 
 font-size:14px;
 
 
+line-height:1.8;
+
 
 }
-
 
 
 
@@ -683,64 +907,53 @@ font-size:14px;
 #btn{
 
 
-margin-top:20px;
-
+margin-top:22px;
 
 
 width:100%;
 
 
-
 padding:15px;
-
 
 
 border:none;
 
 
-
 border-radius:18px;
-
-
-
-font-size:16px;
-
 
 
 cursor:pointer;
 
 
+font-size:15px;
+
+
+font-weight:600;
+
 
 background:
 
 
-linear-gradient(90deg,#444,#666);
-
+linear-gradient(90deg,#4a4a4a,#707070);
 
 
 color:white;
 
 
-
 }
-
-
 
 
 
 #status{
 
 
-margin-top:20px;
-
+margin-top:18px;
 
 
 font-size:14px;
 
 
-
 }
-
 
 
 
@@ -757,35 +970,31 @@ top:0;
 left:0;
 
 
-
 width:100%;
 
 
 height:100%;
 
 
-
 display:none;
-
 
 
 justify-content:center;
 
 
-
 align-items:center;
-
 
 
 background:
 
 
-rgba(0,0,0,.7);
+rgba(0,0,0,.75);
 
+
+z-index:1000;
 
 
 }
-
 
 
 
@@ -796,20 +1005,19 @@ rgba(0,0,0,.7);
 padding:30px;
 
 
-
-border-radius:20px;
-
+border-radius:25px;
 
 
 background:
 
 
-#202020;
-
+#1a1a1a;
 
 
 text-align:center;
 
+
+line-height:1.8;
 
 
 }
@@ -823,52 +1031,52 @@ text-align:center;
 position:fixed;
 
 
-
 top:0;
-
 
 
 left:0;
 
 
-
 width:100%;
-
 
 
 height:100%;
 
 
-
 pointer-events:none;
 
 
-
 }
-
 
 
 
 @media(max-width:500px){
 
 
+.card{
+
+
+padding:25px;
+
+
+}
+
+
+
+.photo-wrap{
+
+
+width:210px;
+
+
+}
+
+
+
 .profile{
 
 
-width:180px;
-
-
-height:260px;
-
-
-}
-
-
-
-h1{
-
-
-font-size:24px;
+height:290px;
 
 
 }
@@ -876,50 +1084,50 @@ font-size:24px;
 
 
 }
+
 
 </style>
 
 </head>
 
-
 <body>
 
 
-<!-- OPENING -->
 
 <div id="intro">
 
+
 <div class="introText">
+
 
 <p>everything</p>
 
+
 <p>made by</p>
 
-<h1>100% love😉🫶</h1>
+
+<h1>
+
+100% love😉🫶
+
+</h1>
+
 
 </div>
 
+
 </div>
 
 
 
-
-<!-- STARS -->
 
 <div id="stars"></div>
 
-
-
-
-<!-- SHOOTING STAR -->
 
 <div class="shooting"></div>
 
 
 
-
-
-<!-- MAIN -->
 
 <div id="main">
 
@@ -929,16 +1137,26 @@ font-size:24px;
 
 
 
+
+<div class="photo-wrap">
+
+
 <img
+
 
 id="profile"
 
+
 src="IMG_20230521_193718_408.webp"
+
 
 class="profile"
 
+
 >
 
+
+</div>
 
 
 
@@ -966,7 +1184,6 @@ forever archived ✨
 
 
 
-
 <div class="musicCard">
 
 
@@ -975,7 +1192,6 @@ forever archived ✨
 🎵 Our Little Universe
 
 </p>
-
 
 
 <small>
@@ -1002,8 +1218,15 @@ onclick="toggleMusic()"
 
 
 
+<div class="note">
+
+🎵
+
 </div>
 
+
+
+</div>
 
 
 
@@ -1020,17 +1243,11 @@ src="Ariana Grande Justin Bieber - Stuck With U - Acoustic Cover (Violin).mp3"
 
 
 
-
-
-
 <h1>
 
 💌 Anonymous Confession
 
 </h1>
-
-
-
 
 
 
@@ -1046,13 +1263,7 @@ placeholder="Tulis sesuatu yang ingin kamu sampaikan..."
 
 
 
-
-
-
-
 <div class="info">
-
-
 
 🛡️
 
@@ -1063,11 +1274,7 @@ Pesanmu aman
 </b>
 
 
-
-<br>
-
-<br>
-
+<br><br>
 
 
 pesanmu akan tersampaikan
@@ -1079,11 +1286,7 @@ kepada yang membuat ini,
 pasti aman aja😉🫶
 
 
-
 </div>
-
-
-
 
 
 
@@ -1101,24 +1304,13 @@ onclick="sendConfession()"
 
 
 
-
-
-
 <p id="status">
 
 </p>
 
 
 
-
-
-
-<div id="hearts">
-
-</div>
-
-
-
+<div id="hearts"></div>
 
 
 
@@ -1126,10 +1318,7 @@ onclick="sendConfession()"
 
 
 
-
-
 </div>
-
 
 
 
@@ -1140,499 +1329,16 @@ onclick="sendConfession()"
 <div class="popupBox">
 
 
-Some memories deserve
+thank you for being
 
-to stay forever.
-
-
-<br>
-
-<br>
-
-
-🫶✨
-
+part of my memories🫶
 
 
 </div>
 
 
 </div>
-
-
-
 
 
 
 <script>
-
-
-const SUPABASE_URL =
-"https://vrhqyymrzatfodtmmrnn.supabase.co/functions/v1/bright-function";
-
-const APIKEY =
-"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ";
-
-
-
-// ===== GREETING =====
-
-const hour = new Date().getHours();
-
-const greet =
-document.getElementById("greeting");
-
-
-if(hour>=0 && hour<6){
-
-greet.innerHTML=
-"good night,<br>thanks for visiting our little universe 🌌";
-
-}
-
-else if(hour<18){
-
-greet.innerHTML=
-"have a wonderful day ✨";
-
-}
-
-else{
-
-greet.innerHTML=
-"good evening,<br>stay safe and smile😉🫶";
-
-}
-
-
-
-
-// ===== STARS =====
-
-const stars =
-document.getElementById("stars");
-
-
-for(let i=0;i<220;i++){
-
-
-let s=
-document.createElement("div");
-
-
-s.className=
-"star";
-
-
-s.style.left=
-Math.random()*100+"%";
-
-
-s.style.top=
-Math.random()*100+"%";
-
-
-let size=
-Math.random()*3+1;
-
-
-s.style.width=
-size+"px";
-
-
-s.style.height=
-size+"px";
-
-
-s.style.animationDelay=
-Math.random()*5+"s";
-
-
-stars.appendChild(s);
-
-
-}
-
-
-
-
-
-// ===== MUSIC =====
-
-const audio=
-document.getElementById("audio");
-
-
-const musicBtn=
-document.getElementById("musicBtn");
-
-
-function toggleMusic(){
-
-
-if(audio.paused){
-
-
-audio.play();
-
-
-musicBtn.innerHTML=
-"⏸ Pause Music";
-
-
-}
-
-
-else{
-
-
-audio.pause();
-
-
-musicBtn.innerHTML=
-"▶ Play Music";
-
-
-}
-
-
-
-}
-
-
-
-
-
-// ===== EASTER EGG =====
-
-
-let tap=0;
-
-
-const profile=
-document.getElementById("profile");
-
-
-profile.addEventListener("click",()=>{
-
-
-tap++;
-
-
-
-if(tap==2){
-
-
-document.getElementById("popup")
-.style.display="flex";
-
-
-setTimeout(()=>{
-
-
-document.getElementById("popup")
-.style.display="none";
-
-
-},2000);
-
-
-
-tap=0;
-
-
-
-}
-
-
-});
-
-
-
-
-
-
-// ===== HEARTS =====
-
-function createHeart(){
-
-
-let heart=
-document.createElement("div");
-
-
-heart.innerHTML=
-"❤️";
-
-
-heart.style.position=
-"fixed";
-
-
-heart.style.left=
-Math.random()*100+"%";
-
-
-heart.style.bottom=
-"0";
-
-
-heart.style.fontSize=
-"20px";
-
-
-heart.style.transition=
-"4s";
-
-
-document.body.appendChild(heart);
-
-
-
-setTimeout(()=>{
-
-
-heart.style.bottom=
-"100%";
-
-
-heart.style.opacity=
-"0";
-
-
-},50);
-
-
-
-setTimeout(()=>{
-
-
-heart.remove();
-
-
-},4000);
-
-
-
-}
-
-
-
-
-
-
-
-// ===== CONFESSION =====
-
-
-async function sendConfession(){
-
-
-
-const msg=
-
-
-document.getElementById("message").value;
-
-
-
-if(!msg.trim()){
-
-
-status.innerHTML=
-
-
-"Isi confession terlebih dahulu";
-
-
-return;
-
-
-}
-
-
-
-
-const btn=
-
-
-document.getElementById("btn");
-
-
-
-btn.disabled=true;
-
-
-
-btn.innerHTML=
-
-
-"⏳ Mengirim...";
-
-
-
-
-
-try{
-
-
-const response=
-
-
-await fetch(
-
-
-SUPABASE_URL,
-
-
-{
-
-
-method:"POST",
-
-
-
-headers:{
-
-
-
-"Content-Type":"application/json",
-
-
-
-"apikey":APIKEY,
-
-
-
-"Authorization":"Bearer "+APIKEY
-
-
-
-},
-
-
-
-body:JSON.stringify({
-
-
-
-message:msg
-
-
-
-})
-
-
-
-}
-
-
-
-);
-
-
-
-
-const data=
-
-
-await response.json();
-
-
-
-
-
-if(data.success){
-
-
-
-status.innerHTML=
-
-
-"💌 Confession berhasil terkirim";
-
-
-
-document.getElementById("message")
-.value="";
-
-
-
-for(let i=0;i<15;i++){
-
-
-
-setTimeout(()=>{
-
-
-createHeart();
-
-
-},i*150);
-
-
-
-}
-
-
-
-}
-
-
-
-else{
-
-
-status.innerHTML=
-
-
-"❌ Gagal mengirim";
-
-
-}
-
-
-
-
-
-}
-
-
-
-
-catch(err){
-
-
-status.innerHTML=
-
-
-"❌ Terjadi error";
-
-
-console.log(err);
-
-
-}
-
-
-
-
-btn.disabled=false;
-
-
-btn.innerHTML=
-
-
-"✈️ Kirim Confession";
-
-
-}
-
-
-</script>
-
-
-
-</body>
-
-</html>
