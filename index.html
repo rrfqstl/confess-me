@@ -1,103 +1,458 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
-  <title>Anonymous Confession</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Anonymous Confession</title>
+
+<style>
+
+body{
+
+margin:0;
+padding:0;
+
+font-family:Arial,Helvetica,sans-serif;
+
+background:linear-gradient(180deg,#0f0f0f,#171717,#101010);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+min-height:100vh;
+
+color:white;
+
+}
+
+
+.card{
+
+width:90%;
+max-width:420px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+box-shadow:
+0 0 30px rgba(255,255,255,.05);
+
+text-align:center;
+
+}
+
+
+.profile{
+
+width:220px;
+height:300px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+box-shadow:
+0 0 25px rgba(255,255,255,.12);
+
+}
+
+
+.small{
+
+margin-top:15px;
+
+font-size:14px;
+
+opacity:.8;
+
+}
+
+
+.archive{
+
+font-size:13px;
+
+opacity:.6;
+
+margin-top:4px;
+
+}
+
+
+
+h1{
+
+margin-top:30px;
+
+font-size:28px;
+
+}
+
+
+
+textarea{
+
+width:100%;
+
+height:160px;
+
+padding:15px;
+
+margin-top:15px;
+
+border:none;
+
+outline:none;
+
+resize:none;
+
+border-radius:18px;
+
+background:#1e1e1e;
+
+color:white;
+
+font-size:15px;
+
+box-sizing:border-box;
+
+}
+
+
+
+.info{
+
+margin-top:18px;
+
+padding:15px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.04);
+
+text-align:left;
+
+font-size:14px;
+
+line-height:1.6;
+
+}
+
+
+
+button{
+
+margin-top:20px;
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:18px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:bold;
+
+color:white;
+
+background:
+linear-gradient(90deg,#6a11cb,#8e44ff);
+
+}
+
+
+
+button:disabled{
+
+opacity:.6;
+
+cursor:not-allowed;
+
+}
+
+
+
+#status{
+
+margin-top:20px;
+
+font-size:15px;
+
+}
+
+
+
+.spinner{
+
+width:18px;
+
+height:18px;
+
+border:3px solid rgba(255,255,255,.3);
+
+border-top:3px solid white;
+
+border-radius:50%;
+
+display:inline-block;
+
+animation:spin .8s linear infinite;
+
+vertical-align:middle;
+
+margin-right:8px;
+
+}
+
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+
+</style>
+
 </head>
 
 <body>
 
-<h1>Anonymous Confession</h1>
+
+<div class="card">
+
+
+<img
+
+src="IMG_20230521_193718_408.webp"
+
+class="profile"
+
+
+>
+
+
+<div class="small">
+
+made with 100% love🫶
+
+</div>
+
+
+<div class="archive">
+
+forever archived ✨
+
+</div>
+
+
+
+<h1>
+
+💌 Anonymous Confession
+
+</h1>
+
+
 
 <textarea
+
 id="message"
-placeholder="Tulis confession kamu..."
-rows="8"
-cols="40"></textarea>
+
+placeholder="Tulis sesuatu yang ingin kamu sampaikan..."
+
+></textarea>
+
+
+
+<div class="info">
+
+🛡️ <b>Pesanmu aman</b>
 
 <br><br>
 
-<button onclick="sendConfession()">
-Kirim
+pesanmu akan tersampaikan 100%
+kepada yang membuat ini,
+pasti aman aja😉🫶
+
+
+</div>
+
+
+
+<button id="btn"
+
+onclick="sendConfession()">
+
+✈️ Kirim Confession
+
 </button>
+
+
 
 <p id="status"></p>
 
+
+
+</div>
+
+
+
 <script>
 
-async function sendConfession() {
 
-const message =
+async function sendConfession(){
+
+
+const message=
+
 document.getElementById("message").value;
 
-if (!message.trim()) {
 
-document.getElementById("status").innerText =
-"Tulis confession dulu";
+if(!message.trim()){
+
+
+document.getElementById("status").innerHTML=
+
+"Isi confession terlebih dahulu";
 
 return;
 
 }
 
-try {
 
-const response = await fetch(
+
+const btn=
+
+document.getElementById("btn");
+
+
+btn.disabled=true;
+
+
+btn.innerHTML=
+
+'<span class="spinner"></span> Mengirim...';
+
+
+
+try{
+
+
+const response=await fetch(
 
 "https://vrhqyymrzatfodtmmrnn.supabase.co/functions/v1/bright-function",
 
 {
 
-method: "POST",
+method:"POST",
 
-headers: {
+headers:{
 
-"Content-Type": "application/json"
+
+"Content-Type":"application/json",
+
+"apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ",
+
+"Authorization":"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyaHF5eW1yemF0Zm9kdG1tcm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE0NDM3NjQsImV4cCI6MjA5NzAxOTc2NH0.a-RHRfd3km0ZCJP95xFQ97VjBmrvm2yNair9YAH07EQ"
+
 
 },
 
-body: JSON.stringify({
 
-message: message
+body:JSON.stringify({
+
+
+message:message
+
 
 })
 
+
 }
+
 
 );
 
-const data = await response.json();
 
-if (data.success) {
 
-document.getElementById("status").innerText =
-"Confession terkirim ✅";
+const data=
 
-document.getElementById("message").value =
-"";
+await response.json();
 
-}
 
-else {
 
-document.getElementById("status").innerText =
-"Gagal mengirim ❌";
+if(data.success){
 
-console.log(data);
 
-}
+document.getElementById("status").innerHTML=
+
+"✅ Confession berhasil terkirim";
+
+
+document.getElementById("message").value="";
+
 
 }
 
-catch(error){
 
-console.log(error);
+else{
 
-document.getElementById("status").innerText =
-"Terjadi error ❌";
+
+document.getElementById("status").innerHTML=
+
+"❌ Gagal mengirim";
+
 
 }
 
+
+
 }
+
+
+
+catch(err){
+
+
+document.getElementById("status").innerHTML=
+
+"❌ Terjadi error";
+
+
+}
+
+
+
+btn.disabled=false;
+
+
+btn.innerHTML=
+
+"✈️ Kirim Confession";
+
+
+}
+
+
 
 </script>
 
